@@ -87,6 +87,9 @@
         },
         "cordova-plugin-tts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "org.nypr.cordova.wakeupplugin": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {},
@@ -716,6 +719,14 @@
             "clobbers": [
                 "TTS"
             ]
+        },
+        {
+            "file": "plugins/org.nypr.cordova.wakeupplugin/www/wakeup.js",
+            "id": "org.nypr.cordova.wakeupplugin.Wakeup",
+            "pluginId": "org.nypr.cordova.wakeupplugin",
+            "clobbers": [
+                "wakeuptimer"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -740,6 +751,7 @@
         "cordova-plugin-media-capture": "1.4.3",
         "cordova-plugin-camera": "2.4.1",
         "cordova-plugin-battery-status": "1.2.4",
-        "cordova-plugin-tts": "0.2.3"
+        "cordova-plugin-tts": "0.2.3",
+        "org.nypr.cordova.wakeupplugin": "0.1.0"
     }
 }

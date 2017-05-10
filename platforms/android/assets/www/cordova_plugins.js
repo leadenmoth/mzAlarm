@@ -542,6 +542,14 @@ module.exports = [
         "clobbers": [
             "TTS"
         ]
+    },
+    {
+        "id": "org.nypr.cordova.wakeupplugin.Wakeup",
+        "file": "plugins/org.nypr.cordova.wakeupplugin/www/wakeup.js",
+        "pluginId": "org.nypr.cordova.wakeupplugin",
+        "clobbers": [
+            "wakeuptimer"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -568,7 +576,8 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "1.4.3",
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-battery-status": "1.2.4",
-    "cordova-plugin-tts": "0.2.3"
+    "cordova-plugin-tts": "0.2.3",
+    "org.nypr.cordova.wakeupplugin": "0.1.0"
 };
 // BOTTOM OF METADATA
 });

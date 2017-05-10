@@ -17,6 +17,7 @@ function getRSSFeed(feed){
             // Iterate through last X entries on RSS
             $('#accordion').empty();
             localStorage.setItem('counter', 0);
+            localStorage.setItem('alarmText', '');
 
             appendRSS(Number(localStorage.getItem('counter')));
             
@@ -46,6 +47,8 @@ function appendRSS(counter) {
 
         //Append header, teaser text and read more button
         $('#accordion').append('<div data-role="collapsible"><h3>' + entry.title + '</h3><p>' + entry.pubDate + '</p><div>' + fullText + '<a href="' + entry.link + '" target=_blank class="ui-btn ui-mini ui-icon-action ui-btn-icon-right ui-alt-icon ui-nodisc-icon">Read more</a></div></div>').collapsibleset('refresh');
+        
+        localStorage.setItem('alarmText', localStorage.getItem('alarmText') + '. '+ entry.title);
 
     };
     localStorage.setItem('counter', Number(localStorage.getItem('counter')) + 20);
@@ -65,6 +68,8 @@ $(document).on("collapsibleexpand", "#accordion > div", function(){
     });
 });
 
+// Prepare text for alarm clock
+
 // Pull to refresh
 $('#content').bind('pulled', function() {
     getRSSFeed('https://zona.media/rss/news.php');
@@ -79,8 +84,14 @@ $('#content').bind('bottomreached', function() {
 getRSSFeed('https://zona.media/rss/news.php');
 
 document.addEventListener('deviceready', function () {
-
-
+    $('#content').scrollz('hidePullHeader');
+    
+    $("#setAlarm").on("change paste keyup", function() {
+        localStorage.setItem('time', $(this).val());
+        console.log(localStorage.getItem('time'));
+        setupAlarm(Number($(this).val().substr(0,2)), Number($(this).val().substr(3,2)));
+    });
+    
 }, false);
 
 // Read text
@@ -95,7 +106,28 @@ function readItem(item) {
         }, function (reason) {
             //alert(reason);
         });
-}
+};
 
-
-//readItem($(this).find('h3').html()));
+function setupAlarm(hr, min){
+    window.wakeuptimer.wakeup( function(result){
+        if (result.type==='wakeup') {
+            readItem(localStorage.getItem('alarmText'));
+            //alert('Alarm went off!' + result.extra);
+        } else if(result.type==='set'){
+            console.log('wakeup alarm set--' + result);
+        } else {
+            console.log('wakeup unhandled type (' + result.type + ')');
+        }
+        
+    }, function(){},
+       // a list of alarms to set
+       {
+            alarms : [{
+                type : 'onetime',
+                time : { hour : hr, minute : min },
+                extra : { message : 'json containing app-specific information to be posted when alarm triggers' },
+                message : 'Alarm has expired!'
+           }]
+       }
+    );
+};

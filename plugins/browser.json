@@ -66,6 +66,9 @@
         },
         "cordova-plugin-tts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "org.nypr.cordova.wakeupplugin": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {

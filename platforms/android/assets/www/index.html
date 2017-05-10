@@ -44,6 +44,9 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/jquery.scrollz.min.js"></script>
+    <link rel="stylesheet" href="css/jtsage-datebox.min.css" />
+    <script src="js/jtsage-datebox.min.js"></script>
+
     <title>Mediazona Alarm</title>
 </head>
 
@@ -51,6 +54,7 @@
     <div data-role="page" data-theme="c">
         <div data-role="header" data-position="fixed"><h1>Медиазона</h1></div>
         <div id="content" data-role="main" class="ui-content" data-scrollz="pull">
+            <input type="text" name="setAlarm" id="setAlarm" value="" data-role="datebox" data-options='{"mode":"timeflipbox"}'>
             <div id="accordion" data-role="collapsibleset" data-inset="false" data-mini="true">
 
             </div>
