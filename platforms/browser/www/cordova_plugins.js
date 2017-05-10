@@ -617,6 +617,14 @@ module.exports = [
         "id": "cordova-plugin-battery-status.Battery",
         "pluginId": "cordova-plugin-battery-status",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-tts/www/tts.js",
+        "id": "cordova-plugin-tts.tts",
+        "pluginId": "cordova-plugin-tts",
+        "clobbers": [
+            "TTS"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -642,7 +650,8 @@ module.exports.metadata =
     "cordova-plugin-contacts": "2.3.1",
     "cordova-plugin-media-capture": "1.4.3",
     "cordova-plugin-camera": "2.4.1",
-    "cordova-plugin-battery-status": "1.2.4"
+    "cordova-plugin-battery-status": "1.2.4",
+    "cordova-plugin-tts": "0.2.3"
 }
 // BOTTOM OF METADATA
 });

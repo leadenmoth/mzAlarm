@@ -160,6 +160,16 @@
                         }
                     ]
                 }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"TTS\"><param name=\"android-package\" value=\"com.wordsbaking.cordova.tts.TTS\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
@@ -225,6 +235,9 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-tts": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
@@ -764,6 +777,14 @@
             "clobbers": [
                 "navigator.battery"
             ]
+        },
+        {
+            "id": "cordova-plugin-tts.tts",
+            "file": "plugins/cordova-plugin-tts/www/tts.js",
+            "pluginId": "cordova-plugin-tts",
+            "clobbers": [
+                "TTS"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -787,6 +808,7 @@
         "cordova-plugin-contacts": "2.3.1",
         "cordova-plugin-media-capture": "1.4.3",
         "cordova-plugin-camera": "2.4.1",
-        "cordova-plugin-battery-status": "1.2.4"
+        "cordova-plugin-battery-status": "1.2.4",
+        "cordova-plugin-tts": "0.2.3"
     }
 }
